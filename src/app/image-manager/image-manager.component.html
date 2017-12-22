@@ -1,0 +1,21 @@
+<h2>My Images</h2>
+
+<app-advanced-search (search)="search($event)"></app-advanced-search>
+
+<a mat-icon-button color="primary" routerLink="/manage/upload">
+  <mat-icon>add_a_photo</mat-icon>
+</a>
+
+<ul class="images">
+  <li *ngFor="let image of images">
+    <a routerLink="/detail/{{image.id}}">
+      <span class="badge">{{image.type | uppercase}}</span> {{image.id}}
+    </a>
+  </li>
+</ul>
+
+<mat-paginator [length]="paginator.getLength()"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="handlePagingEvent($event)">
+</mat-paginator>

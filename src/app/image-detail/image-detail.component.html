@@ -1,0 +1,38 @@
+<div *ngIf="image">
+
+  <mat-list>
+    <mat-list-item>
+      <mat-icon mat-list-icon>link</mat-icon>
+      <p>{{image.id}}</p>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon mat-list-icon>scheduler</mat-icon>
+      <p>{{image.creationDate}}</p>
+    </mat-list-item>
+  </mat-list>
+  <div>
+    <mat-list>
+      <h3 mat-subheader>Tags</h3>
+      <mat-list-item *ngFor="let tag of image.tags; let i = index; trackBy: trackByIndex">
+        <mat-form-field>
+          <input matInput [(ngModel)]="image.tags[i]">
+        </mat-form-field>
+        <button mat-icon-button color="warn" (click)="deleteTag(i)">
+          <mat-icon>remove_circle</mat-icon>
+        </button>
+        <a mat-button routerLink="/dashboard/tag/{{tag}}">
+          View Tag
+        </a>
+      </mat-list-item>
+    </mat-list>
+    <mat-form-field>
+      <input matInput #tagName placeholder="Tag"/>
+    </mat-form-field>
+    <button mat-icon-button color="primary" (click)="addTag(tagName.value); tagName.value=''">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </div>
+  <img src="api/v1/imagedata/{{image.id}}"/>
+</div>
+<button mat-raised-button color="primary" (click)="update()">Update</button>
+<button mat-raised-button color="warn" (click)="back()">Back</button>

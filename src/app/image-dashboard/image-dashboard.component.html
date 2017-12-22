@@ -1,0 +1,17 @@
+<h2 *ngIf="tag">
+  <span>#</span>{{tag}}
+</h2>
+
+<mat-grid-list cols="{{columns}}">
+  <mat-grid-tile *ngFor="let image of images">
+    <a routerLink="/detail/{{image.id}}">
+      <img src="api/v1/imagedata/{{image.id}}"/>
+    </a>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-paginator [length]="paginator.getLength()"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="handlePagingEvent($event)">
+</mat-paginator>

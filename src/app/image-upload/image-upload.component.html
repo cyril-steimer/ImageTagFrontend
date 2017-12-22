@@ -1,0 +1,26 @@
+<input id="input-file-id" type="file" #imageFile/>
+<label for="input-file-id">Choose Image
+</label>
+
+<mat-list>
+    <h3 mat-subheader>Tags</h3>
+    <mat-list-item *ngFor="let tag of tags; let i = index; trackBy: trackByIndex">
+      <mat-form-field>
+        <input matInput [(ngModel)]="tags[i]">
+      </mat-form-field>
+      <button mat-icon-button color="warn" (click)="deleteTag(i)">
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+  <mat-form-field>
+    <input matInput #tagName placeholder="Tag"/>
+  </mat-form-field>
+  <button mat-icon-button color="primary" (click)="addTag(tagName.value); tagName.value=''">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+
+<p>
+  <button mat-raised-button color="primary" (click)="uploadImage(imageFile.files)">Upload Image</button>
+  <button mat-raised-button color="warn" (click)="back()">Back</button>
+</p>

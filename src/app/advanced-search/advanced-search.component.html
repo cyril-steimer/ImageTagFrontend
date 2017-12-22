@@ -1,0 +1,31 @@
+<h2>Advanced Search</h2>
+
+<div>
+  <div *ngFor="let search of searches">
+    <select [(ngModel)]="search.key">
+      <option *ngFor="let key of searchKeys">
+        {{key.name}}
+      </option>
+    </select>
+    <input type="string" [(ngModel)]="search.value"/>
+  </div>
+
+  <div>
+    <select #searchKey>
+      <option *ngFor="let key of searchKeys" [ngValue]="key">
+        {{key.name}}
+      </option>
+    </select>
+    <input #searchValue type="string"/>
+    <button mat-icon-button color="primary" 
+        (click)="addSearch(searchKey.value, searchValue.value); searchValue.value= ''">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </div>
+</div>
+
+<p>
+  <button mat-raised-button color="primary" (click)="emitSearch()">
+    Search
+  </button>
+</p>
