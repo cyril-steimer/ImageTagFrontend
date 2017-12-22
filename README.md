@@ -1,3 +1,9 @@
+# How to run
+
+First, ensure the ImageTagBackend is running.
+Then:
+ng serve --proxy-conf .\proxy.conf.json
+
 # ImageTagFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.2.
