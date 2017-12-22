@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router'
 import { Image, TagImageQuery } from '../image'
 import { ImageService } from '../image.service'
 import { Paginator } from '../paginator'
-import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-image-dashboard',
