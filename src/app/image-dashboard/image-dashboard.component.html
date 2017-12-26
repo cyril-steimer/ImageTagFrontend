@@ -2,10 +2,10 @@
   <span>#</span>{{tag}}
 </h2>
 
-<mat-grid-list cols="{{columns}}">
-  <mat-grid-tile *ngFor="let image of images">
+<mat-grid-list cols="{{columns}}" id="grid-list">
+  <mat-grid-tile *ngFor="let image of images" class="image-tile">
     <a routerLink="/detail/{{image.id}}">
-      <img src="api/v1/imagedata/{{image.id}}"/>
+      <img src="api/v1/imagedata/{{image.id}}" class="image-dashboard"/>
     </a>
   </mat-grid-tile>
 </mat-grid-list>

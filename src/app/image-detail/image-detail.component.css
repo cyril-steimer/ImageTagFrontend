@@ -1,4 +1,9 @@
 .mat-list-icon {
     color: rgba(0, 0, 0, 0.54);
 }
+.image-detail{
+    max-height: 20em;
+    max-width: 80%;
+    height: auto;
+}
   
